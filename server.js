@@ -12,6 +12,7 @@ app.use('/', express.static(path.join(__dirname,'public')));
 
 // ** app.use(express.static());
 
+app.use('/',require('./routes/root'));
 
 app.all('*', (req, res) => {
     res.status(404)
