@@ -9,6 +9,7 @@ const cors = require('cors');
 const corsOptions = require('./config/corsOptions');
 const connectDB = require('./config/dbConn')
 const mongoose = require('mongoose');
+const Note = require('./models/Note');
 const PORT = process.env.PORT || 3500;
 
 connectDB();
@@ -43,9 +44,10 @@ app.all('*', (req, res) => {
 
 app.use(errorHandler)
 
-mongoose.connection.once('open', () => {
+mongoose.connection.once('open', async () => {
     console.log("connected to MongoDB.")
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
+
 })
 
 mongoose.connection.on('error' , err => {
