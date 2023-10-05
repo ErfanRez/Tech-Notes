@@ -1,21 +1,19 @@
 const mongoose = require('mongoose')
 
-
-const userSchema =  new mongoose.Schema({
-    
-    username : {
+const userSchema = new mongoose.Schema({
+    username: {
         type: String,
         required: true
     },
-    password : {
+    password: {
         type: String,
         required: true
     },
-    roles : {
+    roles: {
         type: [String],
         default: ["Employee"]
     },
-    active : {
+    active: {
         type: Boolean,
         default: true
     }
